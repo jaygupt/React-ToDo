@@ -2,14 +2,14 @@ import React, {useState} from "react";
 import {v4 as uuid} from "uuid"; 
 
 function ToDoForm(props) {
-    const [toDo, changeToDo] = useState({
+    const [toDo, setToDo] = useState({
         id: "",
         toDoDescription: "",
         isCompleted: false
     });
     
     function onTaskInputChange(event) {
-        changeToDo({...toDo, toDoDescription: event.target.value}); 
+        setToDo({...toDo, toDoDescription: event.target.value}); 
     }
 
     function handleSubmit(event) {
@@ -20,7 +20,7 @@ function ToDoForm(props) {
             props.addToDo({...toDo, id: uuid()}); 
 
             // reset the form 
-            changeToDo({...toDo, toDoDescription: ""}); 
+            setToDo({...toDo, toDoDescription: ""}); 
         } 
     }
 

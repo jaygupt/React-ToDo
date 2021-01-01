@@ -1,14 +1,33 @@
-import { useState } from 'react';
+import {useState, useEffect} from 'react';
 import './App.css';
 import Header from './Components/Header'; 
 import ToDoForm from './Components/ToDoForm'; 
 import ToDoList from './Components/ToDoList'; 
 
+const LOCAL_STORAGE_KEY = "toDo-App-toDos"; 
+
 function App() {
-  const [toDos, changeToDos] = useState([]); 
+  const [toDos, setToDos] = useState([]);  
+
+  // fired when App.js is initially rendered   
+  useEffect(() => {
+    // get all of the toDos from storage 
+    const toDosInStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)); 
+    
+    // if they exist, display them
+    if (toDosInStorage) {
+      setToDos(toDosInStorage); 
+    }
+  }, []); 
+
+  // fired when toDos array changes
+  useEffect(() => {
+    // store the whole toDos array in local storage 
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(toDos)); 
+  }, [toDos]);
 
   function addToDo(newToDo) {
-    changeToDos([...toDos, newToDo]); 
+    setToDos([...toDos, newToDo]); 
   }
 
   return (
