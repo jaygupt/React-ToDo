@@ -17,7 +17,7 @@ function App() {
         {/* Eventually use Typography here  */}
         <Header /> 
         <ToDoForm 
-        addToDo={addToDo}
+          addToDo={addToDo}
         />
         <ToDoList 
           toDos={toDos}

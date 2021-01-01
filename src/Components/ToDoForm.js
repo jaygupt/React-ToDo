@@ -1,4 +1,5 @@
 import React, {useState} from "react"; 
+import {v4 as uuid} from "uuid"; 
 
 function ToDoForm(props) {
     const [toDo, changeToDo] = useState({
@@ -15,7 +16,11 @@ function ToDoForm(props) {
         event.preventDefault(); 
 
         if (toDo.toDoDescription.trim()) {
-            props.addToDo(toDo); 
+            // add the ToDo, giving it a unique ID 
+            props.addToDo({...toDo, id: uuid()}); 
+
+            // reset the form 
+            changeToDo({...toDo, toDoDescription: ""}); 
         } 
     }
 

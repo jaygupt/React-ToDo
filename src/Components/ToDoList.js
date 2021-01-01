@@ -1,7 +1,19 @@
 import React from 'react'; 
+import ToDo from './ToDo'; 
 
-function ToDoList() {
-  return <h1>ToDoList</h1>
+function ToDoList({toDos}) {
+  return (
+    <ul>
+      {toDos.map(toDo => {
+        return (
+          <ToDo 
+            key={toDo.id}
+            toDo={toDo}
+          />
+        );
+      })}
+    </ul>
+  ); 
 }
 
 export default ToDoList; 
