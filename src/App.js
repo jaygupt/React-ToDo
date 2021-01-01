@@ -30,6 +30,22 @@ function App() {
     setToDos([...toDos, newToDo]); 
   }
 
+  function toggleComplete(id) {
+    setToDos(
+      toDos.map(toDo => {
+        if (toDo.id === id) {
+          console.log(toDo.isCompleted);
+          return {
+            ...toDo,
+            isCompleted: !toDo.isCompleted
+          };  
+        }
+
+        return toDo; 
+      })
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,6 +56,7 @@ function App() {
         />
         <ToDoList 
           toDos={toDos}
+          toggleComplete={toggleComplete}
         />
       </header>
     </div>
