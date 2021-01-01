@@ -1,6 +1,6 @@
 import React, {useState} from "react"; 
 
-function ToDoForm() {
+function ToDoForm(props) {
     const [toDo, changeToDo] = useState({
         id: "",
         toDoDescription: "",
@@ -9,6 +9,14 @@ function ToDoForm() {
     
     function onTaskInputChange(event) {
         changeToDo({...toDo, toDoDescription: event.target.value}); 
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault(); 
+
+        if (toDo.toDoDescription.trim()) {
+            props.addToDo(toDo); 
+        } 
     }
 
     return (
@@ -22,7 +30,10 @@ function ToDoForm() {
                 placeholder="Enter Task Here"
             >               
             </input>    
-            <button type="submit">Submit</button>         
+            <button 
+                type="submit"
+                onClick={handleSubmit}
+            >Submit</button>         
         </form>
     )
 }
