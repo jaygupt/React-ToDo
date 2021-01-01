@@ -34,7 +34,6 @@ function App() {
     setToDos(
       toDos.map(toDo => {
         if (toDo.id === id) {
-          console.log(toDo.isCompleted);
           return {
             ...toDo,
             isCompleted: !toDo.isCompleted
@@ -44,6 +43,10 @@ function App() {
         return toDo; 
       })
     );
+  }
+
+  function removeToDo(id) {
+    setToDos(toDos.filter(toDo => toDo.id !== id)); 
   }
 
   return (
@@ -57,6 +60,7 @@ function App() {
         <ToDoList 
           toDos={toDos}
           toggleComplete={toggleComplete}
+          removeToDo={removeToDo}
         />
       </header>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'; 
 import ToDo from './ToDo'; 
 
-function ToDoList({toDos, toggleComplete}) {
+function ToDoList({toDos, toggleComplete, removeToDo}) {
   return (
     <ul>
       {toDos.map(toDo => {
@@ -11,6 +11,7 @@ function ToDoList({toDos, toggleComplete}) {
             id={toDo.id}
             toDo={toDo}
             toggleComplete={toggleComplete}
+            removeToDo={removeToDo}
           />
         );
       })}

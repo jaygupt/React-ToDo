@@ -1,8 +1,12 @@
 import React from 'react'; 
 
-function ToDo({toDo, toggleComplete}) {
+function ToDo({toDo, toggleComplete, removeToDo}) {
   function handleCheckboxClick() {
     toggleComplete(toDo.id); 
+  }
+
+  function handleTaskDelete() {
+    removeToDo(toDo.id); 
   }
 
   return (
@@ -18,7 +22,9 @@ function ToDo({toDo, toggleComplete}) {
       }}>
         {toDo.toDoDescription}
       </li>
-      <button>X</button>
+      <button
+        onClick={handleTaskDelete}
+      >X</button>
     </div>
   ); 
 }
