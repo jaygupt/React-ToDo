@@ -1,4 +1,6 @@
-import React, {useState} from "react"; 
+import React, {useState} from "react";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import {v4 as uuid} from "uuid"; 
 
 function ToDoForm(props) {
@@ -25,20 +27,24 @@ function ToDoForm(props) {
     }
 
     return (
-        <form>
-            <input
-                label="toDo"
+        <form className="toDo-form">
+            <TextField
+                autoFocus={true}
+                label="To-Do"
                 name="toDo"
                 type="text"
-                value={toDo.taskDescription}
+                size="medium"
+                value={toDo.toDoDescription}
                 onChange={onTaskInputChange}
                 placeholder="Enter Task Here"
             >               
-            </input>    
-            <button 
+            </TextField>    
+            <Button 
+                variant="contained" 
+                color="primary" 
                 type="submit"
                 onClick={handleSubmit}
-            >Submit</button>         
+            >Submit</Button>         
         </form>
     )
 }

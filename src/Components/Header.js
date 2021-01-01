@@ -1,7 +1,15 @@
-import React from 'react'; 
+import React from 'react';
+import Typography from '@material-ui/core/Typography';
 
 function Header() {
-    return <h1>To-Do App</h1>
+    return(
+        <Typography 
+            variant="h1" 
+            gutterBottom
+            style={{padding: 16}}
+        >To-Do App
+        </Typography>
+    ); 
 }
 
 export default Header; 

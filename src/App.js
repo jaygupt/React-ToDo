@@ -52,8 +52,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* Eventually use Typography here  */}
-        <Header /> 
+        <Header />
         <ToDoForm 
           addToDo={addToDo}
         />
@@ -61,7 +60,7 @@ function App() {
           toDos={toDos}
           toggleComplete={toggleComplete}
           removeToDo={removeToDo}
-        />
+        /> 
       </header>
     </div>
   );
