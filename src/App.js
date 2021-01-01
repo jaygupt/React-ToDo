@@ -1,11 +1,14 @@
 import './App.css';
 import Header from './Components/Header'; 
+import ToDoForm from './Components/ToDoForm'; 
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header />
+        {/* Eventually use Typography here  */}
+        <Header /> 
+        <ToDoForm />
       </header>
     </div>
   );
